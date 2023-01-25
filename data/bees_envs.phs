@@ -44,41 +44,31 @@
 #       This will help finding errors when parsing file.
 
 
+#CODE FOR TWO LINES
+#TAXON INFO
+OTU={ #Chalepogenus caeruleus (Friese, 1906)
+      #ncbi = 1955928 (taxon id)
+      #catalog = AMNH_BEE 00060590 (specimen/individual)
+      #to do: find ncbi format original
+      #to do: always include sex and lifestage
+      #to do: how to link ENVO to atom - SERGEI
 
-OTU={ #Agapostemon texanus, UCSB-IZC00000646
   #.denotes links species to the genus
 
   OTU_DATA={
-    TU:UCSB-IZC00000646['OPHU_LIST'='has_phenotype', 'rdfs:label'='Agapostemon texanus']
-    .denotes male_organism:A_texanus ['rdfs:label'='Agapostemon_texanus'];
-    TU:UCSB-IZC00000646 .denotes Agapostemon;
+    TU:AMNH_BEE 00060590['OPHU_LIST'='has_phenotype', 'rdfs:label'='Chalepogenus caeruleus']
+    .denotes male_organism:C_caeruleus ['rdfs:label'='Chalepogenus caeruleus'];
+    TU:AMNH_BEE 00060590 .denotes Chalepogenus;
   }
 
+#
   OPHU_LIST={
-  #has part some intertegular distance and has characteristics some length
-  #http://purl.obolibrary.org/obo/HAO_0002584
+  #elevarion for the individual 1100m
+  #
   #should use HAO width HAO_0002375 because width is dependent entity in PATO
-    male_organism:A_texanus > mesosoma >> width[iri="HAO_0002375"] .is_quality_measured_as measurement_datum:A_texanus
-    .has_measurement_unit_label millimeter;
-    male_organism:A_texanus > measurement_datum:A_texanus .has_measurement_value 2;
-    adult_organism:A_texanus;
-  }
-}
-
-OTU={ #Agapostemon texanus, UCSB-IZC00005600
-
-  OTU_DATA={
-    TU:UCSB-IZC00005600['OPHU_LIST'='has_phenotype', 'rdfs:label'='Agapostemon texanus']
-    .denotes female_organism:A_texanus ['rdfs:label'='Agapostemon_texanus'];
-    TU:UCSB-IZC00005600 .denotes Agapostemon;
-  }
-
-  OPHU_LIST={
-  #has part some intertegular distance and has characteristics some length
-  #http://purl.obolibrary.org/obo/HAO_0002584
-    female_organism:A_texanus > mesosoma >> width[iri="HAO_0002375"] .is_quality_measured_as measurement_datum:A_texanus
-    .has_measurement_unit_label millimeter;
-    female_organism:A_texanus > measurement_datum:A_texanus .has_measurement_value 1.6;
-    adult_organism:A_texanus;
+    male_organism:C_caeruleus >> elevation[iri="PATO_0001687"] >>  .is_quality_measured_as measurement_datum:C_caeruleus
+    .has_measurement_unit_label meters;
+    male_organism:C_caeruleus > measurement_datum:C_caeruleus .has_measurement_value 1100;
+    adult_organism:C_caeruleus;
   }
 }
