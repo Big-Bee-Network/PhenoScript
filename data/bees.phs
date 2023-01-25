@@ -75,7 +75,7 @@ OTU={ #Agapostemon texanus, UCSB-IZC00005600
   #http://purl.obolibrary.org/obo/HAO_0002584
     female_organism:A_texanus > mesosoma >> width[iri="HAO_0002375"] .is_quality_measured_as measurement_datum:A_texanus
     .has_measurement_unit_label millimeter;
-    male_organism:A_texanus > measurement_datum:A_texanus .has_measurement_value 1.6;
+    female_organism:A_texanus > measurement_datum:A_texanus .has_measurement_value 1.6;
     adult_organism:A_texanus;
   }
 }
