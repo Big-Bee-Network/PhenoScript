@@ -1,0 +1,93 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+.snippet-injector {
+}
+
+.colored-svg {
+  fill: #8a8b8c;
+}
+
+#input-prompt {
+  min-width: 500px;
+  height: 45px;
+
+  #prompt-input {
+    width: 62%;
+    padding-left: 5px;
+    float: left;
+    margin-right: 1%;
+    height: 30px;
+  }
+
+  #prompt-confirm, #prompt-cancel {
+    width: 18%;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .more-options {
+    margin-top: 2px;
+
+    #is-shared {
+      margin-left: -62.5%;
+    }
+  }
+}
+
+#search-prompt, #search-multi-prompt {
+  min-width: 500px;
+
+  .title {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  #prompt-list {
+    margin-bottom: 20px;
+    max-height: 250px;
+    overflow-y: scroll;
+
+    .list-item {
+      padding: 10px;
+      font-size: 13px;
+      border-bottom: 1px solid grey;
+      cursor: pointer;
+
+      .icon {
+        width: auto;
+        height: 25px;
+        display: inline-block;
+        float: left;
+        margin-right: 10px;
+      }
+
+      .value {
+        line-height: 25px;
+        margin: 0;
+      }
+
+      &:first-of-type {
+        border-top: 1px solid grey;
+      }
+
+      &.selected {
+        border: 1px solid #429D51;
+        box-shadow: inset 0 0 10px #429D51;
+      }
+    }
+  }
+}
+
+#delete-prompt {
+  select {
+    background: #303030;
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 3px;
+    border-color: #484848;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "phs-syntax",
+  "version": "0.0.1",
+  "description": "PhenoScript syntax highlight",
+  "keywords": [
+  ],
+  "repository": "https://github.com/sergeitarasov/PhenoScript",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}

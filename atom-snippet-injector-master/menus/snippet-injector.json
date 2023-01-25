@@ -1,0 +1,83 @@
+{
+  "context-menu": {
+    "atom-text-editor:not([mini])": [
+      {
+        "type": "separator"
+      },
+      {
+        "label": "Create Snippet from selection",
+        "command": "snippet-injector:create"
+      },
+      {
+        "label": "Update existing snippet",
+        "command": "snippet-injector:update"
+      },
+      {
+        "label": "Insert Snippet",
+        "command": "snippet-injector:insert"
+      },
+      {
+        "label": "Delete Snippet",
+        "command": "snippet-injector:delete"
+      },
+      {
+        "type": "separator"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "Snippet Injector",
+          "submenu": [
+            {
+              "label": "Create Snippet from selection",
+              "command": "snippet-injector:create"
+            },
+            {
+              "label": "Update existing snippet",
+              "command": "snippet-injector:update"
+            },
+            {
+              "label": "Insert Snippet",
+              "command": "snippet-injector:insert"
+            },
+            {
+              "label": "Delete Snippet",
+              "command": "snippet-injector:delete"
+            },
+            {
+              "type": "separator"
+            },
+            {
+              "label": "Export Storage",
+              "command": "snippet-injector:export-all"
+            },
+            {
+              "label": "Export Snippet(s)",
+              "command": "snippet-injector:export"
+            },
+            {
+              "label": "Import Snippet(s)",
+              "command": "snippet-injector:import"
+            },
+            {
+              "type": "separator"
+            },
+            {
+              "label": "Save storage now",
+              "command": "snippet-injector:storage-savenow"
+            },
+            {
+              "label": "Sync database now",
+              "command": "snippet-injector:database-syncnow"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+
+}

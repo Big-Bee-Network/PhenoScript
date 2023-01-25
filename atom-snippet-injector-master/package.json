@@ -1,0 +1,22 @@
+{
+  "name": "snippet-injector",
+  "main": "./lib/snippet-injector",
+  "version": "1.5.4",
+  "description": "An easy but powerful snippet management tool for Atom editor.",
+  "keywords": [
+    "snippets",
+    "snippet-injector",
+    "snippet-manager",
+    "atom",
+    "atom-editor"
+  ],
+  "repository": "https://github.com/MCStreetguy/atom-snippet-injector",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "couchdb-wrapper": "^0.4.0",
+    "cson": "^4.1.0"
+  }
+}
