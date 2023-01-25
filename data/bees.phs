@@ -1,0 +1,61 @@
+
+## Jan 25, 2022, KC Seltmann
+# Phenoscape TraitFest Workshop as
+# Subgroup 4 & 5 trait repository Goal: Create a repository for various kinds of traits and make it work.
+# Members: Sergei Tarasov, Anahi Espindola, Isadora Fluck, István Mikó, Meghan Balk, Giulio Montanaro, Jim Balhoff, Paula Mabee, Jennifer C. Girón (part), Katja Seltmann
+# Here we transform Darwin Core Archive Occurrence data and measurements of bees from a MeasurementOrFact extension to PhenoScript
+# To do this, needed to:
+#   1) create class for ITD (and other functional traits) in HAO http://purl.obolibrary.org/obo/HAO_0002584
+#   2) share instances via Bee Library to M or F extension
+#   3) use DwC archive from Bee Library (or GBIF) to extract traits and annotate using Phenoscript (https://github.com/sergeitarasov/PhenoScript)
+#   4) use PhenoScript to Owl converter to create triples
+#   5) add to Pheno Repo https://github.com/phenoscape/pheno-repo
+#   6) change PhenoScripts to markdown
+#   7) add to specimen github repositories
+#   8) include in micropublications
+# This example uses spreadsheet https://docs.google.com/spreadsheets/d/1oEGeIogSIiVleD_Px0u9EzFy-JLIMnHBj0vgGUU1JAw/edit?usp=sharing
+#TODO add sex, lifestage for each specimen from the Occurrences.csv in DwC Archive
+#TODO create markdown to include in micropublications such as https://zenodo.org/record/7114665#.Y9En9ezMI-Q
+#TODO create classes in HAO for other bee functional traits
+# spreadsheet of traits: https://docs.google.com/spreadsheets/d/1MFxxFzdzo6E_SbLDP8ac0QBoTytdBYVWVSHfoiE5AFc/edit?usp=sharing
+  # traits can be behavior, morphological, environmental, continuous or categorical
+# spreadsheet of instances: https://docs.google.com/spreadsheets/d/1zYQgiDupfT9h5q4q2ZdnhWbmxslaa3z1YCDIkdHHOO0/edit?usp=sharing
+
+
+##### Phenoscript syntax https://github.com/sergeitarasov/PhenoScript
+#
+# '>', 'has_part.'
+# '<', 'part_of.'
+# '>>', 'has_characteristic.'
+# '<<', 'inheres_in.'
+# '|>|' 'increased_in_magnitude_relative_to.'
+# '|<|' 'decreased_in_magnitude_relative_to.'
+# '|=|' 'has_count:'
+
+# This is a new PhenoScript Syntax
+# Changes:
+# 1. OTU, OTU_DATA, OPHU_LIST are all capitals
+# 2.  OTU, OTU_DATA, OPHU_LIST are ddefined by {}
+# 3. Personalozation (tagging) was with '@', now with ':''
+# 4. Edges (object properties) was 'edge.', now '.edge'
+# 5. Recommendations: Consider inserting a comment '# Gen. Sp.' after 'OTU =', for example 'OTU={ #G ryonoides_brasiliensis'.
+#       This will help finding errors when parsing file.
+
+
+
+OTU={ #Agapostemon texanus
+
+  OTU_DATA={
+    TU:UCSB-IZC00000646['OPHU_LIST'='has_phenotype', 'rdfs:label'='Agapostemon texanus']
+    .denotes male_organism:A_texanus ['rdfs:label'='Agapostemon_texanus'];
+    TU:UCSB-IZC00000646 .denotes Agapostemon;
+  }
+
+  OPHU_LIST={
+  #has part some intertegular distance and has characteristics some length
+  #http://purl.obolibrary.org/obo/HAO_0002584
+    male_organism:A_texanus > mesosoma >> width[iri="PATO_0000921"] .is_quality_measured_as measurement_datum:A_texanus
+    .has_measurement_unit_label millimeter;
+    male_organism:A_texanus > measurement_datum:A_texanus .has_measurement_value 2;
+  }
+}
