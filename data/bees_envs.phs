@@ -44,8 +44,10 @@
 #       This will help finding errors when parsing file.
 
 
-#CODE FOR TWO LINES
+#CODE FOR ONE LINE OF THE SPREADSHEET WITH CHARACTERISTICS OF EACH INDIVIDUAL
 #TAXON INFO
+
+####LINE 13####
 OTU={ #Chalepogenus caeruleus (Friese, 1906)
       #ncbi = 1955928 (taxon id)
       #catalog = AMNH_BEE 00060590 (specimen/individual)
@@ -61,14 +63,18 @@ OTU={ #Chalepogenus caeruleus (Friese, 1906)
     TU:AMNH_BEE 00060590 .denotes Chalepogenus;
   }
 
-#
   OPHU_LIST={
-  #elevarion for the individual 1100m
-  #
+  #elevation for the individual 1100m
   #should use HAO width HAO_0002375 because width is dependent entity in PATO
-    male_organism:C_caeruleus >> elevation[iri="PATO_0001687"] >>  .is_quality_measured_as measurement_datum:C_caeruleus
-    .has_measurement_unit_label meters;
-    male_organism:C_caeruleus > measurement_datum:C_caeruleus .has_measurement_value 1100;
-    adult_organism:C_caeruleus;
+
+  #FIRST STATEMENT
+    male_organism:C_caeruleus .located in[iri="RO_0001025"] location[iri="NCIT_C25341"]:loc1;
+    location[iri="NCIT_C25341"]:loc1 > locality[iri="AFR_0001071"] .label[iri="NCIT_C45561"] "Las Trancas (SE of Recinto in greater Chillan area)";
+    location[iri="NCIT_C25341"]:loc1 > elevation[iri="PATO_0001687"] .is_quality_measured_as measurement_datum:measurement1 .has_measurement_unit_label meters;
+    location:loc1 > measurement_datum:measurement1 .has_measurement_value 1100;
+    location:loc1 > logitude[iri="EFO_0005021"] .has_x_coordinate_value -71.483333;
+    location:loc1 > latitude[iri:"EFO_0005020"] .has_y_coordinate_value -36.909167;
+
+    #adult_organism:C_caeruleus;
   }
 }
